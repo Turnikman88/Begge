@@ -1,14 +1,13 @@
-﻿using System;
+﻿using Begge.Models.Contracts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Begge.Models.DatabaseModels
 {
-    public class Organization
+    public class Organization : BaseModel<Guid>
     {
-        public Guid Id { get; set; }
-
         [MinLength(2)]
         [MaxLength(20)]
         public string Name { get; set; }

@@ -11,6 +11,12 @@ namespace Begge.Data.DataConfigurations
     {
         public void Configure(EntityTypeBuilder<Begger> builder)
         {
+            builder.HasIndex(x => x.RoleId);
+
+            builder.HasOne(x => x.Role)
+                .WithMany(x => x.Beggers)
+                .HasForeignKey(x => x.RoleId);
+
             builder.HasIndex(x => x.Email).IsUnique();
 
             builder.Property(x => x.Email).IsRequired();

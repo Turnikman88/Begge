@@ -1,6 +1,8 @@
 using Begge.Web.Infrastructure;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,6 +29,13 @@ namespace Begge.Web
             services.AddHttpClient();
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddApplicationServices(Configuration);
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(x =>
+                {
+                    x.Cookie.Name = "auth_cookie";
+                    x.SlidingExpiration = true;
+                    x.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+                });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -37,8 +46,16 @@ namespace Begge.Web
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            var cookiePolicyOption = new CookiePolicyOptions
+            {
+                MinimumSameSitePolicy = SameSiteMode.Strict
+            };
+
+            app.UseCookiePolicy(cookiePolicyOption);
+
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

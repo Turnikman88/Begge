@@ -11,6 +11,12 @@ namespace Begge.Web.Controllers
 {
     public class HomeController : Controller
     {
+
+        public IActionResult Index()
+        {
+            return this.View();
+        }
+
         public IActionResult Error()
         {
             var exception = HttpContext.Features.Get<IExceptionHandlerFeature>()?.Error;

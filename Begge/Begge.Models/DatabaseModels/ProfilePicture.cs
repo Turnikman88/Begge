@@ -1,13 +1,12 @@
-﻿using System;
+﻿using Begge.Models.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Begge.Models.DatabaseModels
 {
-    public class ProfilePicture
+    public class ProfilePicture : BaseModel<Guid>
     {
-        public Guid Id { get; set; }
-
         public string ImageLink { get; set; }
 
         public Guid BeggerId { get; set; }
