@@ -31,8 +31,8 @@ namespace Begge.Web
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseExceptionHandler("/Error");
-            app.UseStatusCodePagesWithReExecute("/Error");
+            app.UseExceptionHandler("/Home/Error");
+            app.UseStatusCodePagesWithReExecute("/Home/Error");
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

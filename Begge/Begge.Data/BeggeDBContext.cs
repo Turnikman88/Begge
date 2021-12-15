@@ -19,7 +19,10 @@ namespace Begge.Data
         {
 
         }
+
         public virtual DbSet<Begger> Beggers { get; set; }
+        public virtual DbSet<ProfilePicture> ProfilePictures { get; set; }
+        public virtual DbSet<Organization> Organizations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

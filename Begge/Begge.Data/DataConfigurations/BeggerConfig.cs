@@ -19,7 +19,7 @@ namespace Begge.Data.DataConfigurations
 
             builder.Property(x => x.LastName).IsRequired();
 
-            builder.Property(x => x.LastName).IsRequired();
+            builder.Property(x => x.LastName).IsRequired();            
         }
     }
 }

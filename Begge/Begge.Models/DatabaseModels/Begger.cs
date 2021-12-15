@@ -23,5 +23,9 @@ namespace Begge.Models.DatabaseModels
 
         public string QrCodePath { get; set; }
 
+        public virtual ProfilePicture ProfilePicture { get; set; }
+
+        public virtual ICollection<Organization> Organizations { get; set; }
+
     }
 }
