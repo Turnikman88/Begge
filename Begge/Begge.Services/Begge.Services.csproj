@@ -4,4 +4,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Braintree" Version="5.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Begge.Common\Begge.Common.csproj" />
+    <ProjectReference Include="..\Begge.Data\Begge.Data.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Begge.Data
 {
-    class BeggeDBContext : DbContext
+    public class BeggeDBContext : DbContext
     {
         public BeggeDBContext()
         {
