@@ -1,4 +1,5 @@
-﻿using Begge.Services.Contracts;
+﻿using Begge.Common.Reflections;
+using Begge.Services.Contracts;
 using Braintree;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace Begge.Services.Services
 {
-    public class BraintreeService : IBraintreeService
+    public class BraintreeService : IBraintreeService, ITransientService
     {
         private readonly IConfiguration _config;
 

@@ -1,4 +1,5 @@
-﻿using Begge.Data;
+﻿using Begge.Common.Reflections;
+using Begge.Data;
 using Begge.Services.Contracts;
 using Begge.Services.DTOs;
 using Begge.Services.Mappers;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Begge.Services.Services
 {
-    public class AuthService : IAuthService
+    public class AuthService : IAuthService, IScopedService
     {
         private readonly BeggeDBContext _db;
 
@@ -27,6 +28,7 @@ namespace Begge.Services.Services
         public async Task<ResponseAuthDTO> GetByEmailAsync(string email)
         {
             return await _db.Beggers
+                .Include(x => x.Role)
                 .Where(x => x.Email == email)
                 .Select(x => x.GetAuthDTO())
                 .FirstOrDefaultAsync();
