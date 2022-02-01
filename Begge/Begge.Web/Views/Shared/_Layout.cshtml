@@ -9,8 +9,17 @@
 </head>
 <body>
 
-            @RenderBody()
+    @RenderBody()
+    <!--Modal Start-->
+    <div class="modal" id="form-modal" style="width:80vw;" >
+            <div class="modal-content" style="display:flex; justify-content:center; ">
+                
+                <div class="modal-body" style="width:80vw; overflow-y:auto;">
 
+                </div>
+            </div>
+    </div>
+    <!--Modal End-->
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -19,3 +28,4 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+

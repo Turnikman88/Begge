@@ -31,7 +31,7 @@
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-controller="Auth" asp-action="Login">Join Us</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="javascript: openInPopUp('@Url.Action("Login", "Auth")')">Contact</a></li>
                 </ul>
             </div>
         </div>
